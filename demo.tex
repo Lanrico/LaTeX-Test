@@ -1,4 +1,9 @@
 \documentclass[utf8]{ctexart}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{listings}
+\usepackage{caption}
+\usepackage{algorithm2e}
 
 \title{Hello, KAMI}
 \author{Guanlan Ji}
@@ -10,11 +15,9 @@
 \tableofcontents
 
 \section{一级标题}
-\section{一级标题}
 \subsection{二级标题}
 \subsection*{二级标题没有序号版}
 \subsubsection{三级标题}
-\subsection{二级标题}
 第一段
 分段啦
 
@@ -24,6 +27,124 @@
 
 第四段又强制\\分段惹
 
+\newpage % 换页
+\section{一级标题}
+分页惹
 
+\section{插入图片}
+\subsection{单张图片+自动生成标题}
+先导包graphicx
+\begin{figure}[htbp] % [htbp]的作用是自动选择插入图片的最优位置
+  \centering % 设置居中
+  \includegraphics[width=5cm]{testImg.jpg}
+  \caption{测试图片}
+\end{figure}
+
+\subsection{两张并排图片}
+\begin{figure}
+  \centering
+  \subfigure[第一张图]{
+    \includegraphics[width=.45\textwidth]{testImg2.jpg} %宽度按百分比
+  }
+  \quad
+  \subfigure[第二张图]{
+    \includegraphics[width=.45\textwidth]{testImg2.jpg}
+    % \label{测试}%文中引用该图片代号
+  }
+  \caption{多图示例}
+\end{figure}
+
+正文中这样引用图片
+
+\section{列表和表格}
+\subsection{列表}
+\subsubsection{无序列表}
+\begin{itemize}
+  \item[*] *号作标记
+  \item[+] +号作标记
+  \item[.] .号作标记
+\end{itemize}
+
+\subsubsection{有序列表}
+\begin{enumerate}
+  \item[1] aabb
+  \item[2] ccdd 
+\end{enumerate}
+
+\subsubsection{描述}
+\begin{description}
+  \item[1] 描述1
+  \item[2] 描述2 
+\end{description}
+
+\subsection{表格}
+\begin{table}[htbp]
+  \begin{center}
+  
+  \setlength\tabcolsep{40pt} %调整列间距
+  表1\quad符号说明
+  
+  \renewcommand{\arraystretch}{1.4} %调整行间距
+  \begin{tabular}{c c} %表示表内元素居中（还可更换为l左r右）
+  \hline %横线
+  符号     & 含义                  \\ \hline
+  $E_i$ & 第$i$个企业     \\  
+  $r_i$      & 企业$E_i$的评价指标向量      \\  
+  $w$      & 层次分析法中的权重向量        \\  
+  $h_i$      & 企业$E_i$的信贷风险 \\ 
+  $\alpha_i$      &企业$E_i$的年利率         \\ 
+  $k$      & 不同类型的企业的受影响程度    \\ 
+   \hline
+  \end{tabular}
+  
+  \end{center}
+\end{table}
+
+\section{代码}
+\subsection{一般代码}
+需要宏包listings
+\lstset{
+	%backgroundcolor=\color{red!50!green!50!blue!50},%代码块背景色为浅灰色
+%	rulesepcolor= \color{gray}, %代码块边框颜色
+	breaklines=true,  %代码过长则换行
+	numbers=left, %行号在左侧显示
+	numberstyle= \small,%行号字体
+	% keywordstyle= \color{blue},%关键字颜色
+	commentstyle=\color{gray}, %注释颜色
+	frame=shadowbox    %用方框框住代码块
+	frame=single，
+	escapeinside=``  % 代码包含中文，把想插入的代码中的中文部分用 ` ` 括起来
+}
+\begin{lstlisting}[language=python]
+  print('Hello,World!')
+\end{lstlisting}
+
+\subsection{伪代码}
+需要宏包algorithm2e
+
+\begin{algorithm}
+  \KwData{Dataset and hyperparameters}
+  Initialize $f_0(x)$;
+  \For{$k = 1,2,...,n $}
+  {
+    Sample a set of hyperparameters from the distribution\;
+    \quad params = sample\_hyperparameters(param\_distribution)\;
+    Train and evaluate the model with the sampled hyperparameters\;
+    \quad model.set\_params(**params)\;
+    \quad scores = cross\_val\_score(model, X, y, scoring=scoring, cv=cv)\;
+    \quad mean\_score = np.mean(scores)\;
+    Update the best hyperparameters if the score is better:
+    \If{mean\_score $\geq$ best\_score}{best\_score = mean\_score\;
+            best\_params = params\;}  
+    \textbf{Return:}\ best\_score, best\_params
+  }
+  \caption{RandomizedSearchCV algorithm}\label{Algorithm 2}
+\end{algorithm}
+
+\subsection{公式}
+% \begin{equation}\label{阻尼}
+%   F_\text{阻尼}=d_1\left(x^{'}(t)-X^{'}(t)\right).    
+% \end{equation}  
+% 引用了\eqref{阻尼}
 
 \end{document}
