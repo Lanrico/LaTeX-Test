@@ -1,0 +1,43 @@
+\documentclass[12pt]{article}
+\usepackage[a4paper, left=3.17cm, right=3.17cm, top=2.54cm, bottom=2.54cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{mathptmx}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{chemformula}
+% \usepackage{cite} %IEEE格式
+\usepackage[colorlinks, linkcolor=black, anchorcolor=black, citecolor=black]{hyperref}
+\usepackage{graphicx}
+\usepackage[style=apa,backend=biber]{biblatex}  % apa格式
+\addbibresource{USYD_Assignment_Ref.bib}  % apa格式
+
+\setlength{\parskip}{0.5em}
+\title{Place Your Project Title at Here}
+\author{\textup{Qi YUAN}}
+\begin{document}
+\input{title/title.tex}
+\tableofcontents
+\newpage
+
+\section{Abstract}
+% Sample cite \cite{farokhzad2009impact} % IEEE格式
+Sample cite \autocite{farokhzad2009impact} % apa格式
+
+\section{Introduction}
+
+\section{Body Content}
+
+\section{Results and Discussion}
+
+\section{Conclusion}
+
+\printbibliography % apa格式
+% \bibliographystyle{ieeetrans} %IEEE格式
+% \bibliography{USYD_Assignment_Ref.bib} %IEEE格式
+% apa和IEEE使用的宏包不同，所以编译方式也不同，
+% 从IEEE切换到apa时，需先删除.bbl文件，然后点击Recipe: pdflatex -> bibtex... 编译，报错后再直接编译一遍。
+% 从apa切换到IEEE时，需先删除.bbl文件，然后直接编译。
+
+
+
+\end{document}

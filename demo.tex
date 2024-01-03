@@ -4,6 +4,9 @@
 \usepackage{listings}
 \usepackage{caption}
 \usepackage{algorithm2e}
+\usepackage{amsmath}
+\usepackage{bm}
+\usepackage{natbib}
 
 \title{Hello, KAMI}
 \author{Guanlan Ji}
@@ -99,6 +102,7 @@
   
   \end{center}
 \end{table}
+\newpage % 换页
 
 \section{代码}
 \subsection{一般代码}
@@ -141,10 +145,73 @@
   \caption{RandomizedSearchCV algorithm}\label{Algorithm 2}
 \end{algorithm}
 
-\subsection{公式}
-% \begin{equation}\label{阻尼}
-%   F_\text{阻尼}=d_1\left(x^{'}(t)-X^{'}(t)\right).    
-% \end{equation}  
-% 引用了\eqref{阻尼}
+\section{公式}
+\begin{equation}\label{kami}
+  F_\text{kami}=d_1\left(x^{'}(t)-X^{'}(t)\right).    
+\end{equation}  
+引用了公公又式式\eqref{kami}，需要宏包amsmath和bm
+
+如果$a>b$，$b>c$，则$a>c$.  
+%行内公式
+
+$$
+\frac{a}{b}=a/b  
+$$  
+%行间公式与分式
+
+\begin{equation}  
+    a^{2}_{0}=a_{0}\times a_0=a_{0} \cdot a_{0}  
+\end{equation}
+%行间公式与上下标
+
+\begin{equation*}  
+\sum_{n=0}^{+\infty}\left(1+ \frac{1}{n}\right)^n  
+\end{equation*}
+
+$\overrightarrow{\bm{AB}}=\overrightarrow{AO}+\overrightarrow{OB}$
+%关于向量以及公式加粗
+
+\begin{equation*}
+f(x)= \begin{cases}
+x, & x>0 \\ 
+-x, & x \leq 0
+\end{cases}
+\end{equation*}
+%如何写分段函数的大括号
+
+\begin{equation*}
+\begin{aligned}
+9 & =4+5 \\
+& =3+6 \\
+= & 1+8
+\end{aligned}
+\end{equation*}
+%注意是在&的位置进行对齐
+
+\begin{equation*}
+\begin{bmatrix}
+    11 & 4 \\
+    5 & 14
+\end{bmatrix}
+\end{equation*}
+%如何输入矩阵
+\end{document}
+
+\section{References}
+需要宏包natbib
+
+近年来，以机器学习、知识图谱为代表的人工智能技术逐渐变得普及。从车牌识别、人脸识别、语音识别、智能助手、
+推荐系统到自动驾驶，人们在日常生活中都可能有意无意地用到了人工智能技术。深度学习以神经网络为主要模型，
+一开始用来解决机器学习中的表示学习问题．但是由于其强大的能力，深度学习越来越多地用来解决一些通用人工智能问题，
+比如推理、决策等
+
+%以上花括号里的字母与参考文献后面的字母保持一致即可引用。
+
+\begin{thebibliography}{99}
+    % \bibitem{a}邱锡鹏. \emph{神经网络与深度学习}[M]. 机械工业出版社, 2020.
+    % \bibitem{b}周志华, 王珏. \emph{机器学习及其应用}2009[M]. 清华大学出版社, 2009.
+    % \bibitem{c}蒋宗礼.\emph{人工神经网络导论}[M]. 北京:高等教育出版,2008 :40-44
+    % \bibitem{d}李超,范淼.\emph{python 机器学习及实践———从零开始通往Kaggle竞赛之路}［M］.北京:清华大学出版社,2016:74-75
+\end{thebibliography}
 
 \end{document}
